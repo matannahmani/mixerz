@@ -10,6 +10,7 @@ class AddFieldsToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :gender, :boolean
     add_column :users, :work, :string
     add_column :users, :education, :string
+    add_column :users, :fullname, :string
     add_reference :users, :setting, foreign_key: true
   end
 end

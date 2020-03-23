@@ -10,25 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_23_074916) do
+ActiveRecord::Schema.define(version: 2020_03_23_085228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "connection_chats", force: :cascade do |t|
     t.bigint "connection_id"
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["connection_id"], name: "index_connection_chats_on_connection_id"
-  end
-
-  create_table "connectionchats", force: :cascade do |t|
-    t.bigint "connection_id"
-    t.string "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["connection_id"], name: "index_connectionchats_on_connection_id"
+    t.index ["user_id"], name: "index_connection_chats_on_user_id"
   end
 
   create_table "connections", force: :cascade do |t|
@@ -44,10 +44,10 @@ ActiveRecord::Schema.define(version: 2020_03_23_074916) do
 
   create_table "event_chats", force: :cascade do |t|
     t.string "message"
-    t.bigint "eventmember_id"
+    t.bigint "event_member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["eventmember_id"], name: "index_event_chats_on_eventmember_id"
+    t.index ["event_member_id"], name: "index_event_chats_on_event_member_id"
   end
 
   create_table "event_joins", force: :cascade do |t|
@@ -70,23 +70,6 @@ ActiveRecord::Schema.define(version: 2020_03_23_074916) do
     t.index ["user_id"], name: "index_event_members_on_user_id"
   end
 
-  create_table "eventchats", force: :cascade do |t|
-    t.string "message"
-    t.bigint "eventmember_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["eventmember_id"], name: "index_eventchats_on_eventmember_id"
-  end
-
-  create_table "eventmembers", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "event_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_eventmembers_on_event_id"
-    t.index ["user_id"], name: "index_eventmembers_on_user_id"
-  end
-
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -96,6 +79,9 @@ ActiveRecord::Schema.define(version: 2020_03_23_074916) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.boolean "etype"
+    t.index ["category_id"], name: "index_events_on_category_id"
     t.index ["location_id"], name: "index_events_on_location_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
@@ -138,6 +124,7 @@ ActiveRecord::Schema.define(version: 2020_03_23_074916) do
     t.boolean "gender"
     t.string "work"
     t.string "education"
+    t.string "fullname"
     t.bigint "setting_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["hobby_id"], name: "index_users_on_hobby_id"
@@ -147,15 +134,13 @@ ActiveRecord::Schema.define(version: 2020_03_23_074916) do
   end
 
   add_foreign_key "connection_chats", "connections"
-  add_foreign_key "connectionchats", "connections"
-  add_foreign_key "event_chats", "eventmembers"
+  add_foreign_key "connection_chats", "users"
+  add_foreign_key "event_chats", "event_members"
   add_foreign_key "event_joins", "events"
   add_foreign_key "event_joins", "users"
   add_foreign_key "event_members", "events"
   add_foreign_key "event_members", "users"
-  add_foreign_key "eventchats", "eventmembers"
-  add_foreign_key "eventmembers", "events"
-  add_foreign_key "eventmembers", "users"
+  add_foreign_key "events", "categories"
   add_foreign_key "events", "locations"
   add_foreign_key "events", "users"
   add_foreign_key "users", "hobbies"
