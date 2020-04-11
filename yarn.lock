@@ -864,6 +864,13 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@bit/joshk.react-spinners-css.facebook@^1.1.7":
+  version "1.1.7"
+  resolved "https://node.bit.dev/joshk.react-spinners-css.facebook/-/joshk.react-spinners-css.facebook-1.1.7.tgz#222b6d16238c3e58f4c9c4c2aa0c1ebdf4fd5340"
+  integrity sha1-IittFiOMPlj0ycTCqgwevfT9U0A=
+  dependencies:
+    prop-types "^15.7.2"
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -6011,6 +6018,13 @@ react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-spinners-css@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/react-spinners-css/-/react-spinners-css-1.1.7.tgz#1143ef1051b77a76b2394a8c71db3db520ec0481"
+  integrity sha512-wcnFtGXCgFbIDsPr9CDoDU+F01uojf+ot/jJi4DUfHJ9S/zVRE7lIfSbsSHtIeDltclr3Dq9rHnAUdYaOt4SIg==
+  dependencies:
+    prop-types "^15.7.2"
 
 react@^16.13.1:
   version "16.13.1"

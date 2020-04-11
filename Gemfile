@@ -30,3 +30,5 @@ group :development, :test do
 end
 
 gem "geocoder", "~> 1.6"
+
+gem "cloudinary", "~> 1.13"
