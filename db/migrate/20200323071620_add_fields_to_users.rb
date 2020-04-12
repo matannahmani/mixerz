@@ -1,6 +1,5 @@
 class AddFieldsToUsers < ActiveRecord::Migration[5.2]
   def change
-    add_reference :users, :location, foreign_key: true
     add_column :users, :birthday, :date
     add_column :users, :home, :string
     add_reference :users, :hobby, foreign_key: true
