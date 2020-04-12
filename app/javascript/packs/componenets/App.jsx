@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import Home from './Index';
-import Match from './match';
+import Match from './deck';
 import Navbar from './navbar';
 
 class App extends Component {

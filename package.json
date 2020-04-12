@@ -9,12 +9,17 @@
     "bootstrap": "^4.4.1",
     "jquery": "^3.5.0",
     "jquery-ui-dist": "^1.12.1",
+    "nuka-carousel": "^4.6.6",
     "popper.js": "^1.16.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-deck-swiper": "^1.0.9",
     "react-dom": "^16.13.1",
+    "react-gesture": "^0.0.5",
     "react-router-dom": "^5.1.2",
     "react-spinners-css": "^1.1.7",
+    "react-spring": "^8.0.27",
+    "react-use-gesture": "^7.0.13",
     "serviceworker": "^0.1.7"
   },
   "devDependencies": {
