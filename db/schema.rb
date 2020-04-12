@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_053602) do
+ActiveRecord::Schema.define(version: 2020_04_12_064819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,7 +94,6 @@ ActiveRecord::Schema.define(version: 2020_04_11_053602) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.bigint "location_id"
     t.integer "capacity"
     t.date "date"
     t.bigint "user_id"
@@ -102,19 +101,13 @@ ActiveRecord::Schema.define(version: 2020_04_11_053602) do
     t.datetime "updated_at", null: false
     t.boolean "etype"
     t.string "categories", array: true
-    t.index ["location_id"], name: "index_events_on_location_id"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "hobbies", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.float "longitude"
-    t.float "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -134,7 +127,6 @@ ActiveRecord::Schema.define(version: 2020_04_11_053602) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "location_id"
     t.date "birthday"
     t.string "home"
     t.bigint "hobby_id"
@@ -146,9 +138,10 @@ ActiveRecord::Schema.define(version: 2020_04_11_053602) do
     t.string "education"
     t.string "fullname"
     t.bigint "setting_id"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["hobby_id"], name: "index_users_on_hobby_id"
-    t.index ["location_id"], name: "index_users_on_location_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["setting_id"], name: "index_users_on_setting_id"
   end
@@ -161,9 +154,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_053602) do
   add_foreign_key "event_joins", "users"
   add_foreign_key "event_members", "events"
   add_foreign_key "event_members", "users"
-  add_foreign_key "events", "locations"
   add_foreign_key "events", "users"
   add_foreign_key "users", "hobbies"
-  add_foreign_key "users", "locations"
   add_foreign_key "users", "settings"
 end

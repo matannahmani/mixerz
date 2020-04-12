@@ -46,7 +46,7 @@ $oswald : 'Oswald', sans-serif;
       display: initial;
       color: gray;
       font-size:2vw;
-      opacity: 0.7;
+      opacity: 0.9;
     }
     .mobile-nav{
       display: none;
@@ -234,12 +234,11 @@ $oswald : 'Oswald', sans-serif;
     margin-right: 8px;
     flex-grow: 1;
     margin-top: 2vh;
-    span{
-      font-size: 32px;
-    }
-    h2{
-      font-size: 3vw;
-    }
+    text-decoration: none;
+    text-align: center;
+    color:black;
+    svg { font-size: 8vw; }
+    h2 { font-size: 3vw; }
   }
   .banner{
     h1{

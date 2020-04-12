@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   # setting up some stuff
     # here should grab user location and set it
-
+    geocoded_by :ip_address,
+      :latitude => :lat, :longitude => :lon
+    after_validation :geocode
     # after should create rating based on how many photos user has plus how many letters inside bio
 end

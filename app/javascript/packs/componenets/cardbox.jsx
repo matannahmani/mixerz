@@ -3,7 +3,7 @@ import Spinner from '@bit/joshk.react-spinners-css.facebook';
 import Card from './card';
 
 const loadevent = (events) => {
-  if (events === "Empty")
+  if (events === null || events === "Empty")
     return <h3>Pepole are tired ☹</h3>;
   else{
      return events.map(event => <Card photo={event.photo} key={event.key} title={event.name} date={event.date} location={event.location} genre={event.categories.join(', ')} going={event.going}/>)
