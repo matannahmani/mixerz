@@ -3,6 +3,7 @@ import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import Home from './Index';
 import Match from './deck';
 import Navbar from './navbar';
+import Eventc from './eventcreate';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <Switch>
             <Route path="/match" component={Match}/>
             <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={Eventc}/>
           </Switch>
         </div>
         </BrowserRouter>

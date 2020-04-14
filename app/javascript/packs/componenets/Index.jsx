@@ -10,6 +10,7 @@ class Index extends Component{
         loading: true,
         today: null,
         tomorrow: null,
+        week: null,
         price: 0,
         distance: 5,
         words: ''
@@ -32,6 +33,7 @@ class Index extends Component{
         });
         data.today.code === 200 ? this.setState({today: data.today.events}) : this.setState({today: 'Empty'})
         data.tomorrow.code === 200 ? this.setState({tomorrow: data.tomorrow.events}) : this.setState({tomorrow: 'Empty'})
+        data.week.code === 200 ? this.setState({week: data.week.events}) : this.setState({week: 'Empty'})
         this.setState({loading: false});
     }
     componentDidMount() {
@@ -75,7 +77,7 @@ class Index extends Component{
                 {/* <Navbar/> */}
                 {/* {loading} */}
                 <Banner fetchData={() => this.fetchDataHandler()} eventHandler={(e) => this.eventTypeHandler(e)} milesHandler={(e) => this.milesHandler(e)}/>
-                <Cardbox today={this.state.today} tomorrow={this.state.tomorrow} isloading={this.state.loading}/>
+                <Cardbox week={this.state.week} today={this.state.today} tomorrow={this.state.tomorrow} isloading={this.state.loading}/>
                 <Footer/>
             </div>
         )

@@ -11,12 +11,14 @@ const loadevent = (events) => {
 }
 
 const cardbox = (props) => {
-  let loading, today, tomorrow;
+  let loading, today, tomorrow, week;
   if (props.isloading === true)
     loading = <Spinner color="#be97e8" className="loader"/>
   else if (today !== null && tomorrow !== null) {
     today = loadevent(props.today);
     tomorrow = loadevent(props.tomorrow);
+    week = loadevent(props.week);
+
     loading = null;
   }
   return(
@@ -30,6 +32,11 @@ const cardbox = (props) => {
       <div className="cards">
       {loading}
       {tomorrow}
+      </div>
+      <h2>HOT THIS WEEK</h2>
+      <div className="cards">
+      {loading}
+      {week}
       </div>
     </div>
   )

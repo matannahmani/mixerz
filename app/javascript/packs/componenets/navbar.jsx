@@ -38,9 +38,9 @@ const navbar = (props) => {
             <div className="dropdown dropleft avatar-mobile">
             <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="User" className="avatar dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" href="#">Profile</a>
-                <a className="dropdown-item" href="#">Create Event</a>
-                <a className="dropdown-item" href="#">Logout</a>
+              <Link to="/profile"><span className="dropdown-item">Profile</span></Link>
+              <Link to="/create"><span className="dropdown-item" href="#">Create Event</span></Link>
+              <Link to="/logout"><span className="dropdown-item" href="#">Logout</span></Link>
             </div>
             </div>
             </li>

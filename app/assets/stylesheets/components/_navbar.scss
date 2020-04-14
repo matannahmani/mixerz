@@ -178,6 +178,9 @@ $oswald : 'Oswald', sans-serif;
 .cards{
   overflow: auto;
   white-space: nowrap;
+  svg,h3{
+    text-align: center;
+  }
 }
 .card{
   display: inline-flex;
