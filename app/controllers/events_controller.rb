@@ -2,9 +2,18 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    events = Event.near([params["lat"],params["long"]])
-    today = events.where(date: Date.today)
-    tomorrow = events.where(date: Date.tomorrow)
+    allowed = [0,5,10,15,50,100]
+    params['price'].nil? ? price = false : [0,1].include?(params['price'.to_i]) ? price = params['price'] == '0' : price = false
+    params['words'].nil? ? words = false : (params['words'].length > 4 && params['words'].length < 25) ? words = params['words'] : words = false
+    option = returnparams
+    if option['distance'] != 0
+      events = Event.near([params["lat"],params["long"]], option['distance'] * 2, units: :km )
+      today = events.where(date: Date.today)
+      tomorrow = events.where(date: Date.tomorrow)
+    else
+      today = Event.where(date: Date.today)
+      tomorrow = Event.where(date: Date.tomorrow)
+    end
     json = {}
     today.empty? ? json["today"] = {code: 500, msg: "No Events for today"} : json["today"] = {code: 200, events: showindex(today)}
     tomorrow.empty? ? json["tomorrow"] = {code: 500, msg: "No Events for tomorrow"} : json["tomorrow"] = {code: 200, events: showindex(tomorrow)}
@@ -12,10 +21,23 @@ class EventsController < ApplicationController
   end
 
   def nearby
-
   end
 
   private
+  def returnparams
+    option = {}
+    if !params['distance'].nil? && !params['distance'].empty?
+      if [0,5,10,15,50,100].include?(params['distance'].to_i)
+        option['distance'] = params['distance'].to_i
+      else
+        option['distance'] = 5
+      end
+    else
+      option['distance'] = 5
+    end
+    return option
+  end
+
   def showindex(events)
     events_protected = []
     events.each do |event,index|

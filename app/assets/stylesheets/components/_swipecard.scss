@@ -34,6 +34,10 @@
         font-family: monospace;
     }
 }
+          
+::-webkit-scrollbar { 
+    display: none;
+}
 .swipe-descp {
     height: 100%;
     display: flex;
@@ -70,7 +74,7 @@
         border: 0;
         background: none;
         font-size: 24px;
-
+        outline: inherit;
     }
 }
 #no{

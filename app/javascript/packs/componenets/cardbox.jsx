@@ -16,7 +16,6 @@ const cardbox = (props) => {
     loading = <Spinner color="#be97e8" className="loader"/>
   else if (today !== null && tomorrow !== null) {
     today = loadevent(props.today);
-    console.log(today)
     tomorrow = loadevent(props.tomorrow);
     loading = null;
   }

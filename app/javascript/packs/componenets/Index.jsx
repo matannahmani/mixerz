@@ -9,7 +9,10 @@ class Index extends Component{
     state= {
         loading: true,
         today: null,
-        tomorrow: null
+        tomorrow: null,
+        price: 0,
+        distance: 5,
+        words: ''
     }
 
     load = async () =>{
@@ -21,7 +24,7 @@ class Index extends Component{
         let ipcords;
         await $.getJSON('http://ip-api.com/json?callback=?', function(data) { ipcords = [data.lat,data.lon] });
         // navigator.geolocation.getCurrentPosition((pos) => console.log(`Your current position is: ${pos.coords}`), (err) =>   console.warn(`ERROR(${err.code}): ${err.message}`), options);
-        let response = await fetch(`${location.origin}/eventapi/?lat=${ipcords[0]}&long=${ipcords[1]}`);
+        let response = await fetch(`${location.origin}/eventapi/?lat=${ipcords[0]}&long=${ipcords[1]}&distance=${this.state.distance}&price=${this.state.price}&words=${this.state.words}`);
         let data
         data = await response.json().catch(() => {
             alert('failed');
@@ -30,17 +33,48 @@ class Index extends Component{
         data.today.code === 200 ? this.setState({today: data.today.events}) : this.setState({today: 'Empty'})
         data.tomorrow.code === 200 ? this.setState({tomorrow: data.tomorrow.events}) : this.setState({tomorrow: 'Empty'})
         this.setState({loading: false});
-        console.log(this.state);
     }
     componentDidMount() {
         this.load();
+    }
+    milesHandler(e) {
+        const miles = document.getElementById('miles');
+        const items = document.querySelectorAll('.opt');
+        items.forEach ((item) => 
+        {
+            if (item.classList.contains ('active')) item.classList.remove('active')
+        });
+        e.target.classList.add('active');
+        miles.innerText = `Within ${e.target.innerText}..`
+        if ((/\d+/).test(miles.innerText)){
+            this.setState({distance: parseInt(miles.innerText.match(/\d+/)[0])})
+        }else{
+        console.log('i am here')
+        this.setState({distance: 0})
+        }
+    }
+    eventTypeHandler(e) {
+        const buttons = document.querySelector('.buttons')
+        buttons.childNodes.forEach ( (btn) => btn.classList.remove('active'));
+        buttons.childNodes[0] == e ? this.setState({price: 0}) : this.setState({price: 1})
+        e.target.classList.add('active')
+    }
+    fetchDataHandler() {
+        const input = document.querySelector('.form').childNodes[0];
+        if (input.value.length > 4 && input.value.length < 25)
+            {
+            this.setState({words: input.value,loading: true})
+            this.load();
+            }
+        else
+            alert('Please write more than 4 letters\nAnd less then 25')
     }
     render () {
         return (
             <div>
                 {/* <Navbar/> */}
                 {/* {loading} */}
-                <Banner/>
+                <Banner fetchData={() => this.fetchDataHandler()} eventHandler={(e) => this.eventTypeHandler(e)} milesHandler={(e) => this.milesHandler(e)}/>
                 <Cardbox today={this.state.today} tomorrow={this.state.tomorrow} isloading={this.state.loading}/>
                 <Footer/>
             </div>

@@ -92,20 +92,29 @@ $oswald : 'Oswald', sans-serif;
     font-weight: lighter;
   }
 }
+  .go-button{
+      border: none;
+      background: none;
+      font-size: 20px;
+  }
 .search{
   position: absolute;
   bottom: -40px;
-  width: 548px;
+  width: 640px;
   height: 80px;
   background: #262322;
   display: inline-flex;
   justify-content: start;
   align-items: center;
+  .buttons{
+    margin-left: 40px;
+    margin-bottom: 2px;
+    button{
+      margin-left: 8px;
+    }
+  }
   .mobile-options{
     display: none;
-  }
-  a{
-    margin-left: 8px;
   }
   .options{
     position: relative;
@@ -114,6 +123,27 @@ $oswald : 'Oswald', sans-serif;
       position: absolute;
       top: -13px;
       left: 4px;
+      border: none;
+      font-size: 0.9rem;
+    }
+    .dropdown-menu{
+        top: 8px !important;
+        left: -0.1vw !important;
+        width: 150px !important;
+        min-width: 0 !important;
+        border-radius: 0;
+        padding: 0px;
+    }
+    .dropdown-item:hover,.active{
+      background-color: palevioletred;
+    }
+    .dropdown-menu.show {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      -webkit-box-shadow: 9px 10px 17px -7px rgba(0,0,0,0.77);
+      -moz-box-shadow: 9px 10px 17px -7px rgba(0,0,0,0.77);
+      box-shadow: 9px 10px 17px -7px rgba(0,0,0,0.77);
     }
   }
   .form{
