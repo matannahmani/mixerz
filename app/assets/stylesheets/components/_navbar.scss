@@ -115,6 +115,15 @@ $oswald : 'Oswald', sans-serif;
   }
   .mobile-options{
     display: none;
+    .dropdown-menu{
+      top: 2vh !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      left: -2vw !important;
+    }
+    .dropdown-item:hover,.active{
+      background-color: palevioletred;
+    }
   }
   .options{
     position: relative;
@@ -254,8 +263,11 @@ $oswald : 'Oswald', sans-serif;
     flex-grow: 1;
   }
   .mobile-options{
-    margin-left: 10vw;
-    display: inline-block !important;
+    // margin-left: 10vw;
+    display: inline-flex !important;
+    .dropdown{
+      margin-left: 2.5vw;
+    }
   }
   .options,.buttons{
     display: none !important;

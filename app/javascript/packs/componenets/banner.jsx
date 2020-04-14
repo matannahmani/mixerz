@@ -11,7 +11,18 @@ const banner = (props) => {
           <span className="iconify" data-icon="bx:bx-search" data-inline="false"></span>
         </div>
         <div className="mobile-options">
-          <button className="btn btn-secondary mobile-options">Options</button>
+          <div className="dropdown">
+            <button className="dropdown-toggle btn btn-secondary mobile-options" type="button" id="miles3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</button>
+            <div className="dropdown-menu" aria-labelledby="miles3">
+              <button onClick={(e) => props.milesHandler(e)} className="opt dropdown-item active" type="button">5 miles</button>
+              <button onClick={(e) => props.milesHandler(e)} className="opt dropdown-item" type="button">10 miles</button>
+              <button onClick={(e) => props.milesHandler(e)} className="opt dropdown-item" type="button">15 miles</button>
+              <button onClick={(e) => props.milesHandler(e)} className="opt dropdown-item" type="button">50 miles</button>
+              <button onClick={(e) => props.milesHandler(e)} className="opt dropdown-item" type="button">100 miles</button>
+              <button onClick={(e) => props.milesHandler(e)} className="opt dropdown-item" type="button">Any distance</button>
+            </div>
+          </div>
+          <button className="go-button" onClick={() => props.fetchData()}><span className="iconify" data-icon="logos:go" data-inline="false"></span></button>
         </div>
           <div className="options">
           <div className="dropdown">

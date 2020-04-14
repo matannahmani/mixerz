@@ -14,7 +14,7 @@ class App extends Component {
           <Switch>
             <Route path="/match" component={Match}/>
             <Route exact path="/" component={Home}/>
-            <Route exact path="/" component={Eventc}/>
+            <Route path="/create" component={Eventc}/>
           </Switch>
         </div>
         </BrowserRouter>
