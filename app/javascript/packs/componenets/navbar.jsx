@@ -41,6 +41,7 @@ const navbar = (props) => {
               <Link to="/profile"><span className="dropdown-item">Profile</span></Link>
               <Link to="/create"><span className="dropdown-item" href="#">Create Event</span></Link>
               <Link to="/logout"><span className="dropdown-item" href="#">Logout</span></Link>
+              <Link to="/session"><span className="dropdown-item" href="#">Signin</span></Link>
             </div>
             </div>
             </li>

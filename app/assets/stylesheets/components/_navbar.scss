@@ -157,7 +157,7 @@ $oswald : 'Oswald', sans-serif;
   }
   .form{
     position: relative;
-    margin-left: 24px;
+    margin-left: 2vw;
     display: flex;
     input{
       background: #fbf5f3;
@@ -264,7 +264,10 @@ $oswald : 'Oswald', sans-serif;
   }
   .mobile-options{
     // margin-left: 10vw;
-    display: inline-flex !important;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
     .dropdown{
       margin-left: 2.5vw;
     }

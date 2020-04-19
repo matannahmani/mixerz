@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.9.4",
-    "@bit/joshk.react-spinners-css.facebook": "^1.1.7",
+    "@bit/joshk.react-spinners-css.facebook": "^1.1.8",
     "@rails/webpacker": "5.0.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bootstrap": "^4.4.1",
@@ -20,6 +20,7 @@
     "react-spinners-css": "^1.1.7",
     "react-spring": "^8.0.27",
     "react-use-gesture": "^7.0.13",
+    "redux": "^4.0.5",
     "serviceworker": "^0.1.7"
   },
   "devDependencies": {

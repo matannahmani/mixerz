@@ -1,0 +1,53 @@
+.login-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10%;
+	border: 35px black;
+	height: 350px;
+    width: 350px;
+    button,input {
+        margin: 8px;
+    }
+    h2{
+        font-size: 2.5rem;
+    }
+    label{
+        font-size: 1.5rem;
+    }
+    #email,#password{
+        border-radius: 5px;
+        border: 0px solid green;
+    }
+    #email:focus,#password:focus{
+        border: 1px solid green;
+    }
+    .session {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        button{
+            font-size: 1.5rem;
+        }
+    }
+    button{
+        border: none;
+    }
+    .oauth{
+        font-size: 48px;
+        width: 80%;
+        display: flex;
+        justify-content: space-evenly;
+        button{
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+        }
+    }
+}
