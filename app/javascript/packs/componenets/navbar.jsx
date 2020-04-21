@@ -74,7 +74,7 @@ class Navbar extends Component{
                 {this.state.islogged ?
                 <Link onClick={() => this.logout()} to="/"><span className="dropdown-item">Logout</span></Link>
                 :
-                <Link to="/session"><span className="dropdown-item">Login</span></Link>
+                <Link to={{pathname: '/session', logHandler: () => this.setState({islogged: true})}}><span className="dropdown-item">Login</span></Link>
                 }
               </div>
               </div>

@@ -1,9 +1,9 @@
 import React, {Component, useState, useEffect} from 'react'
-import ReactDOM from 'react-dom'
-import Navbar from './navbar'
 import Banner from './banner'
 import Footer from './footer'
 import Cardbox from './cardbox'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Index extends Component{
     state= {
@@ -33,7 +33,14 @@ class Index extends Component{
           }});
         let data
         data = await response.json().catch(() => {
-            alert('failed');
+            toast.error("ERROR\nPlease Try Later", {
+                position: "top-right",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true
+                });
             this.setState({loading: false})
         });
         data.today.code === 200 ? this.setState({today: data.today.events}) : this.setState({today: 'Empty'})
@@ -74,13 +81,19 @@ class Index extends Component{
             this.load();
             }
         else
-            alert('Please write more than 4 letters\nAnd less then 25')
+            toast.warn("Please write more than 4 letters", {
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true
+            });
     }
     render () {
         return (
             <div>
-                {/* <Navbar/> */}
-                {/* {loading} */}
+                <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl pauseOnVisibilityChange draggable pauseOnHover/>
                 <Banner fetchData={() => this.fetchDataHandler()} eventHandler={(e) => this.eventTypeHandler(e)} milesHandler={(e) => this.milesHandler(e)}/>
                 <Cardbox week={this.state.week} today={this.state.today} tomorrow={this.state.tomorrow} isloading={this.state.loading}/>
                 <Footer/>
