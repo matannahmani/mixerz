@@ -78,6 +78,7 @@ class Index extends Component{
                 {/* {loading} */}
                 <Banner fetchData={() => this.fetchDataHandler()} eventHandler={(e) => this.eventTypeHandler(e)} milesHandler={(e) => this.milesHandler(e)}/>
                 <Cardbox week={this.state.week} today={this.state.today} tomorrow={this.state.tomorrow} isloading={this.state.loading}/>
+                <Footer/>
             </div>
         )
     }

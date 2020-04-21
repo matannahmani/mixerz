@@ -1,5 +1,5 @@
-class EventsController < ActionController::API
-  before_action :authenticate_user!
+class EventsController < ApplicationController
+  skip_before_action :authenticate_user!
 
   def index
     # Geocoder.search(request.location)
