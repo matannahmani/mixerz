@@ -25,7 +25,12 @@ class Index extends Component{
         let ipcords;
         await $.getJSON('http://ip-api.com/json?callback=?', function(data) { ipcords = [data.lat,data.lon] });
         // navigator.geolocation.getCurrentPosition((pos) => console.log(`Your current position is: ${pos.coords}`), (err) =>   console.warn(`ERROR(${err.code}): ${err.message}`), options);
-        let response = await fetch(`${location.origin}/eventapi/?lat=${ipcords[0]}&long=${ipcords[1]}&distance=${this.state.distance}&price=${this.state.price}&words=${this.state.words}`);
+        const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+        let response = await fetch(`${location.origin}/eventapi/?lat=${ipcords[0]}&long=${ipcords[1]}&distance=${this.state.distance}&price=${this.state.price}&words=${this.state.words}`,
+        {headers: {
+            'Authorization': 'Bearer TOKEN',
+            'X-CSRF-Token': csrf
+          }});
         let data
         data = await response.json().catch(() => {
             alert('failed');

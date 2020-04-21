@@ -1,0 +1,38 @@
+.profile-head {
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	align-items: center;
+	h1,h2{
+		margin-top: 8px;
+	}
+	img{
+		border-radius: 10%;
+		width: 60vw;
+		max-width: 300px;
+	}
+	p{
+		text-align: center;
+		margin: 8px;
+	}
+}
+.profile-tags{
+	li{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		i{
+			margin: 4px;
+			padding: 8px;
+			border-radius: 10%;
+			background-color: lemonchiffon;	
+		}
+	}
+}
+@media only screen and (max-width: 640px) {
+	.profile-head {
+		img{
+		}
+	}
+}

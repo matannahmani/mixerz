@@ -34,3 +34,5 @@ gem "geocoder", "~> 1.6"
 gem "cloudinary", "~> 1.13"
 
 gem "pg_search", "~> 2.3"
+
+gem "devise-jwt", "~> 0.6.0"
