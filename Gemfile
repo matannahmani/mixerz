@@ -36,3 +36,6 @@ gem "cloudinary", "~> 1.13"
 gem "pg_search", "~> 2.3"
 
 gem "omniauth-facebook", "~> 6.0"
+
+gem 'devise-jwt', '~> 0.5.8'
+gem "rack-cors", "~> 1.1"

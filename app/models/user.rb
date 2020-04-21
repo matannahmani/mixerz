@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_many :receiver, :class_name => 'Connection', :foreign_key => 'receiver_id'
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook]
-
+         # :omniauthable, omniauth_providers: %i[facebook],
+         :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
   # validations
   validates :fullname, :birthday, :home, :bio, :gender, presence: true
 

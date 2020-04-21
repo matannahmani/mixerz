@@ -51,6 +51,7 @@ Rails.application.configure do
   config.assets.debug = false
 
   # Suppress logger output for asset requests.
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.assets.quiet = true
 
   # Raises error for missing translations

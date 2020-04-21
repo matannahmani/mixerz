@@ -13,6 +13,15 @@ class Signin extends Component{
         console.log(this.props);
     }
 
+    login = async() => {
+        email = document.getElementById('email');
+        password = document.getElementById('password')
+        if (email.value.length < 3 || password.value.length < 6){
+            alert("Email or Password\nis too short");
+        }
+        
+    }
+
     render () {
         return (
             <div className="center">

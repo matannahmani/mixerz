@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+    devise_for :users,
+             path: '',
+             path_names: {
+               sign_in: 'login',
+               sign_out: 'logout',
+               registration: 'signup'
+             },
+             controllers: {
+               sessions: 'sessions',
+               registrations: 'registrations'
+             }
   root to: 'pages#react'
   get 'react', to: "pages#react"
   get 'match', to: "pages#react"
