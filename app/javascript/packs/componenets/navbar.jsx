@@ -68,7 +68,7 @@ class Navbar extends Component{
               </Link>
               <div className="dropdown dropleft avatar-mobile">
               <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" alt="User" className="avatar dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
-              <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <div className="dropdown-menu" id="navbar-drop"aria-labelledby="dropdownMenuButton">
                 <Link to="/profile"><span className="dropdown-item">Profile</span></Link>
                 <Link to="/create"><span className="dropdown-item">Create Event</span></Link>
                 {this.state.islogged ?

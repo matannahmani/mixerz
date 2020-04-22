@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {Link} from 'react-router-dom';
 
-class Signin extends Component{
+class Signup extends Component{
     state = {
         email: null,
         password: null
@@ -65,20 +64,16 @@ class Signin extends Component{
             <div className="center">
                 <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl pauseOnVisibilityChange draggable pauseOnHover/>
                 <div className="login-form">
-                    {/* <label htmlFor="email">Email</label> */}
-                    <input type="text" id="email" placeholder="email"/>
-                    {/* <label htmlFor="password">Password</label> */}
-                    <input type="password" id="password" placeholder="password"/>
+                    <label htmlFor="email">Email</label>
+                    <input type="text" id="email"/>
+                    <label htmlFor="password">Password</label>
+                    <input type="password" id="password"/>
                     <div className="session">
-                        <button onClick={this.login} className="signin">Sign In</button>
-                        <Link to={{pathname: '/signup',loginstate: { loginstate: this.state }}}>
-                        <button className="signup">Sign Up</button>
-                        </Link>
-                        <button className="forgotpassword">Forgot Password</button>
-                        {/* <span className="iconify" data-icon="ant-design:login-outlined" data-inline="false"></span>
-                        <span className="iconify" data-icon="bx:bxs-user-plus" data-inline="false"></span>
-                        <span className="iconify" data-icon="mdi:lock-reset" data-inline="false"></span> */}
+                        <button onClick={this.login} className="signin">Sign In<span className="iconify" data-icon="ant-design:login-outlined" data-inline="false"></span></button>
+                        <button className="signup">Sign Up<span className="iconify" data-icon="bx:bxs-user-plus" data-inline="false"></span></button>
+                        <button className="forgotpassword">Forgot Password<span className="iconify" data-icon="mdi:lock-reset" data-inline="false"></span></button>
                     </div>
+                    <h2>Sign in using</h2>
                     <div className="oauth">
                         <button className="facebook-sign"><span className="iconify" data-icon="logos:facebook" data-inline="false"></span></button>
                         <button className="google-sign"><span className="iconify" data-icon="flat-color-icons:google" data-inline="false"></span></button>
@@ -88,4 +83,4 @@ class Signin extends Component{
         )
     }
 }
-export default Signin;
+export default Signup;
