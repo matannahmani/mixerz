@@ -2,18 +2,20 @@ class Event < ApplicationRecord
   # include PgSearch
   # pg_search_scope :search_details, against: [:name, :description]
   belongs_to :user
+  after_validation :geocode
   has_many :event_member
   validates :name,:description,:capacity,:date,:etype, presence: true
   has_many_attached :photos
-  geocoded_by :location
-  before_validation do
-    location = Geocoder.search([self.latitude,self.longitude])
-    if location[0].data["error"].nil?
-      self.address =  location[0].data['display_name']
-    else
-      self.delete
-    end
-  end
+  geocoded_by :address
+  # before_validation do
+  #   location = Geocoder.search([self.latitude,self.longitude])
+  #   if location[]
+  #   if location[0].data["error"].nil?
+  #     self.address =  location[0].data['display_name']
+  #   else
+  #     self.delete
+  #   end
+  # end
 
   def geoshort
     self.address.split(',')[0]

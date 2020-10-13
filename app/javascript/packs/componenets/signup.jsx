@@ -63,21 +63,13 @@ class Signup extends Component{
         return (
             <div className="center">
                 <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl pauseOnVisibilityChange draggable pauseOnHover/>
-                <div className="login-form">
-                    <label htmlFor="email">Email</label>
-                    <input type="text" id="email"/>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" id="password"/>
-                    <div className="session">
-                        <button onClick={this.login} className="signin">Sign In<span className="iconify" data-icon="ant-design:login-outlined" data-inline="false"></span></button>
-                        <button className="signup">Sign Up<span className="iconify" data-icon="bx:bxs-user-plus" data-inline="false"></span></button>
-                        <button className="forgotpassword">Forgot Password<span className="iconify" data-icon="mdi:lock-reset" data-inline="false"></span></button>
-                    </div>
-                    <h2>Sign in using</h2>
-                    <div className="oauth">
-                        <button className="facebook-sign"><span className="iconify" data-icon="logos:facebook" data-inline="false"></span></button>
-                        <button className="google-sign"><span className="iconify" data-icon="flat-color-icons:google" data-inline="false"></span></button>
-                    </div>
+                <div className="signup-form">
+                    <h2>Email:</h2>
+                    <input type="text" placeholder="email"/>
+                    <h2>Password:</h2>
+                    <input type="text" placeholder="password"/>
+                    <h2>Name:</h2>
+                    <input type="text" placeholder="email"/>
                 </div>
             </div>
         )

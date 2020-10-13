@@ -3,6 +3,7 @@ import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import Home from './Index';
 import Match from './deck';
 import Navbar from './navbar';
+import Footer from './footer';
 import Eventc from './eventcreate';
 import Session from './signin';
 import Profile from './profile';
@@ -22,6 +23,7 @@ class App extends Component {
             <Route path="/profile" component={Profile}/>
             <Route path="/signup" component={Signup}/>
           </Switch>
+          <Footer/>
         </div>
         </BrowserRouter>
     );

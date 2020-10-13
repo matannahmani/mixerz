@@ -12,10 +12,12 @@ Rails.application.routes.draw do
                registrations: 'registrations'
              }
   root to: 'pages#react'
+  resources :events
   get 'react', to: "pages#react"
   get 'match', to: "pages#match"
   get 'eventapi', to: "events#index"
   get 'pepolenearbyapi', to: "events#nearby"
   get 'session', to: "pages#react"
+  get 'signup', to: "pages#react"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

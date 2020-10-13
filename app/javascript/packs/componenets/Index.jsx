@@ -1,6 +1,5 @@
 import React, {Component, useState, useEffect} from 'react'
 import Banner from './banner'
-import Footer from './footer'
 import Cardbox from './cardbox'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -54,7 +53,7 @@ class Index extends Component{
     milesHandler(e) {
         const miles = document.getElementById('miles');
         const items = document.querySelectorAll('.opt');
-        items.forEach ((item) => 
+        items.forEach ((item) =>
         {
             if (item.classList.contains ('active')) item.classList.remove('active')
         });
@@ -75,20 +74,22 @@ class Index extends Component{
     }
     fetchDataHandler() {
         const input = document.querySelector('.form').childNodes[0];
-        if (input.value.length > 4 && input.value.length < 25)
-            {
-            this.setState({words: input.value,loading: true})
-            this.load();
-            }
-        else
-            toast.warn("Please write more than 4 letters", {
-            position: "top-right",
-            autoClose: 2500,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true
-            });
+        this.setState({words: input.value,loading: true})
+        this.load();
+        // if (input.value.length > 4 && input.value.length < 25)
+        //     {
+        //     this.setState({words: input.value,loading: true})
+        //     this.load();
+        //     }
+        // else
+        //     toast.warn("Please write more than 4 letters", {
+        //     position: "top-right",
+        //     autoClose: 2500,
+        //     hideProgressBar: false,
+        //     closeOnClick: true,
+        //     pauseOnHover: true,
+        //     draggable: true
+        //     });
     }
     render () {
         return (
@@ -96,7 +97,6 @@ class Index extends Component{
                 <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl pauseOnVisibilityChange draggable pauseOnHover/>
                 <Banner fetchData={() => this.fetchDataHandler()} eventHandler={(e) => this.eventTypeHandler(e)} milesHandler={(e) => this.milesHandler(e)}/>
                 <Cardbox week={this.state.week} today={this.state.today} tomorrow={this.state.tomorrow} isloading={this.state.loading}/>
-                <Footer/>
             </div>
         )
     }

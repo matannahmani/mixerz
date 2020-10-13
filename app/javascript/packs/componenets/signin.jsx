@@ -21,7 +21,14 @@ class Signin extends Component{
         const email = document.getElementById('email');
         const password = document.getElementById('password')
         if (email.value.length < 3 || password.value.length < 6){
-            alert("Email or Password\nis too short");
+            toast.warn("Please write more than 4 letters", {
+                position: "top-right",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true
+                });
         }else{
         const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
         const response2 = await fetch(`${location.origin}/login`, {
